@@ -19,6 +19,6 @@ homeNav.appendChild(homeLink);
 
 homeHeader.appendChild(homeNav);
 
-if (fccBody.children[0].children[0].nodeName === "HEADER") {
+if (fccBody?.children[0]?.children[0]?.nodeName === "HEADER") {
     fccBody.children[0].children[0].prepend(homeLink)
 } else fccBody.prepend(homeHeader);
