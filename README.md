@@ -1,2 +1,3 @@
-# freecodecamp-exercises
-Freecodecamp Exercises
+# Freecodecamp Exercises
+
+Running through the Freecodecamp exercises
