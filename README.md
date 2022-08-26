@@ -1,3 +1,3 @@
-# Freecodecamp Exercises
+# Project Exercises
 
-Running through the Freecodecamp exercises
+Running through the exercises of two sources: Freecodecamp and The Odin Project.

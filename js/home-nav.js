@@ -8,7 +8,7 @@ homeNav = document.createElement("nav");
 homeHeader = document.createElement("header");
 
 if (window.location.href.indexOf("githubbubber") !== -1) {
-    homeLink.setAttribute("href", "/freecodecamp-exercises");
+    homeLink.setAttribute("href", "/project-exercises");
 } else {
     homeLink.setAttribute("href", "/");
 }
