@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    background-color: #1f2937;
+    width: 100%; 
+    height: auto;
+    padding-bottom: 40px;
+}
+
+div#headerDivOne {
+    display: flex;
+    padding: 2% 10%;
+}
+
+div#headerDivTwo {
+    display: flex;
+    padding: 2% 10% 0;
+    height: 300px;
+}
+
+div#headerDivThree {
+    flex: 1;
+    height: 100px;
+    padding: 2% 2% 0 0;
+}
+
+h1#h1One {
+    font-size: 48px;
+    font-weight: bolder;
+    color: #f9faf8;
+}
+
+p#pOne {
+    font-size: 18px;
+    color: #e5e7eb;
+    margin-bottom: 10px;
+}
+
+button#buttonOne {
+    background-color: #3882f6;
+    color: #f9faf8;
+    padding: 2% 6%;
+    border-color: transparent;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+button#lowerButton {
+    flex: 1;
+    border: 5px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    color: #f9faf8;
+    background-color: transparent;
+    font-size: 24px;
+    height: 10%;
+    width: 50%;
+    margin: auto;
+}
+
+div#bottomSectionDiv {
+    display: flex;
+    background-color: #3882f6;
+    color: #f9faf8;
+    padding: 3%;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+section#bottomSection {
+    padding: 10%; 
+    color: #f9faf8;
+}
+
+div#divCTA {
+    flex: 2;
+}
+
+strong#cta {
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+div#placeholder {
+    flex: 1;
+    height: 100px;
+}
+
+section#randomInfo {
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+h2#someRandom {
+    padding: 2% 10%;
+    font-size: 36px;
+    font-weight: bolder;
+    color: #1f2937;
+}
+
+h2#subject {
+    display: flex;
+    justify-content: space-around;
+    padding: 2% 10%;
+}
+
+footer#footer {
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+div#squares {
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    border: 3px solid #3882f6;
+    border-radius: 10px;
+}
+
+section#quote {
+    background-color: #e5e7eb;
+    font-size: 36px;
+    font-style: italic;
+    color: #1f2937;
+    padding-bottom: 100px;
+}
+
+strong {
+    flex: 1;
+    font-size: 24px;
+    color: #f9faf8;
+}
+
+nav {
+    flex: 1;
+    font-size: 18px;
+    color: #e5e7eb;
+    text-align: right;
+}
+
+figcaption {
+    text-align: right;
+}
+
+figure {
+    padding: 10% 10% 2%;
+}
+
+blockquote {
+    font-size: 36px;
+    font-style: italic;
+    color: #1f2937;
+}
+
+img {
+    width: 100%;
+    height: 300px;
+}
