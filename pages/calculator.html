@@ -66,7 +66,7 @@
             let results;
             let answer = 0;
 
-            const display = function() {
+            const display = () => {
                 results = "";
 
                 for (let x = 0; x <= everyPress.length - 1; x++) {
@@ -82,50 +82,50 @@
                 calcWindow.innerHTML = results;
             };
 
-            const add = function(num1, num2) {
+            const add = (num1, num2) => {
                 return num1 + num2;
             };
 
-            const subtract = function(num1, num2) {
+            const subtract = (num1, num2) => {
                 return num1 - num2;
             };
 
-            const multiply = function(num1, num2) {
+            const multiply = (num1, num2) => {
                 return num1 * num2;
             };
 
-            const divide = function(num1, num2) {
+            const divide = (num1, num2) => {
                 return num1 / num2;
             };
 
-            const power = function(num1, num2) {
+            const power = (num1, num2) => {
                 return Math.pow(num1, num2);
             };
 
-            // Operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
-            const operator = function(operand, num1, num2) {
+            // Operate function that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+            const operator = (num1, operand, num2) => {
                 if (operand === 42) { // *
-                    multiply(num1, num2);
+                    return multiply(num1, num2);
                 } else if (operand === 47) { // /
-                    divide(num1, num2);
+                    return divide(num1, num2);
                 } else if (operand === 43) { // +
-                    add(num1, num2);
+                    return add(num1, num2);
                 } else if (operand === 45 || operand === 49) { // -
-                    subtract(num1, num2);
+                    return subtract(num1, num2);
                 } else if (operand === 94) {  // ^
-                    power(num1, num2);
+                    return power(num1, num2);
                 } else if (operand === 46) { // .
                     // Gotta figure this one out :( )
                 } 
             };
             
-            const addPress = function(item) {
+            const addPress = (item) => {
                 everyPress.push(item);
 
                 display();
             };
 
-            const clearPress = function() {
+            const clearPress = () => {
                 everyPress = [];
             
                 results = "";
@@ -135,15 +135,15 @@
                 calcWindow.innerHTML = results; 
             };
 
-            const deletePress = function() {
+            const deletePress = () => {
                 everyPress.pop();
 
-                results = results.split(results[length-1])[0];
+                results = results.split(results[results.length - 1])[0];
 
                 calcWindow.innerHTML = results;
             };
 
-            const calculate = function() {
+            const calculate = () => {
                 if (results) {
                     let itemsArray = results.replace(/\s/g, "").split(/(\d*)/g).filter(x => x);
 
@@ -165,12 +165,12 @@
                         clearTimeout();
                     } else {
                         for (let x = 0; x < newArray.length - 1; x++) {
-                            if (!Number(newArray[x])) {
-                                let num1 = answer ? answer : newArray[x - 1];
+                            if (!Number(newArray[x]) && x !== 0) {
+                                let num1 = answer !== 0 ? answer : newArray[x - 1];
                                 let operand = newArray[x].charCodeAt(0);
                                 let num2 = newArray[x + 1];
 
-                                operator(num1, operand, num2);
+                                answer = operator(num1, operand, num2);
                             }
                         }
                     }
