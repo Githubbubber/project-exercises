@@ -1,9 +1,9 @@
 import _ from "lodash";
 
-import getHeading from "./pages/Heading";
-import { getTheWhyHeader, getTheWhySection } from "./pages/Why";
-import { getTheWhatHeader, getTheWhatSection } from "./pages/What";
-import getFooter from "./pages/Footer";
+import getHeading from "./sections/Heading";
+import { getTheWhyHeader, getTheWhySection } from "./sections/Why";
+import { getTheWhatHeader, getTheWhatSection } from "./sections/What";
+import getFooter from "./sections/Footer";
 import "./css/general-styles.css";
 
 function component() {
