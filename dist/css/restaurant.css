@@ -1,0 +1,41 @@
+img {
+    width: 10%;
+    height: auto;
+    margin: 0 5%;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0161c2;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}

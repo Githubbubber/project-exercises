@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin-dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+</head>
+
+<body>
+    <section class="leftMenu">
+        <menu>
+            <nav>
+                <strong>Dashboard</strong>
+                <ul>
+                    <li>Home</li>
+                    <li>Profile</li>
+                    <li>Messages</li>
+                    <li>History</li>
+                    <li>Tasks</li>
+                    <li>Communities</li>
+                </ul>
+                <ul>
+                    <li>Settings</li>
+                    <li>Support</li>
+                    <li>Privacy</li>
+                </ul>
+            </nav>
+        </menu>
+    </section>
+
+    <section class="rightMain">
+        <header class="searchBarGreeting">
+            <div id="upperHeaderRow">
+                <div>
+                    <i class="fa fa-search"></i>
+                    <label for="searchBar">
+                        <input type="text" id="searchBar" title="searchBar" name="searchBar" placeholder="" />
+                    </label>
+                </div>
+                <div></div>
+            </div>
+            <div id="lowerHeaderRow">
+                <div>
+                    <small>Hi there,</small>
+                    <h2>Names Galore (@nonamer)</h2>
+                </div>
+                <div id="upperRightBtns">
+                    <button>New</button>
+                    <button>Upload</button>
+                    <button>Share</button>
+                </div>
+            </div>
+        </header>
+        <main class="cardsContainer">
+            <h3>Some Cat Facts</h3>
+            <section id="cards">
+            </section>
+            <aside id="topAside">
+                <h3>Announcements</h3>
+                <div>
+                    <h4>Site Maintenance</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+                </div>
+                <hr />
+                <div>
+                    <h4>Community Share Day</h4>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <hr />
+                <div>
+                    <h4>Updated Privacy Policy</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </aside>
+            <aside id="bottomAside">
+                <div>
+                    <img src="https://users.cs.northwestern.edu/~robby/logos/plt-logo-red-flat.png" alt="">
+                </div>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrhnlnCitCoG5jvIZvFlvZfQ8WfAVNhB1Q5g&usqp=CAU" alt="">
+                </div>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2K1pO-uIBmkm8dsNHfkX3GbQWnTuLsZaew&usqp=CAU" alt="">
+                </div>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-_GtimrJ3uwvpXN2ye_RD9m_XLECRro2yYg&usqp=CAU" alt="" />
+                </div>
+            </aside>
+        </main>
+    </section>
+    
+    <script src="../js/admin-dashboard.js"></script>
+</body>
+</html>
