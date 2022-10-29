@@ -1,12 +1,29 @@
 import _ from "lodash";
+
+import getHeading from "./pages/Heading";
+import { getTheWhyHeader, getTheWhySection } from "./pages/Why";
+import { getTheWhatHeader, getTheWhatSection } from "./pages/What";
+import getFooter from "./pages/Footer";
 import "./css/general-styles.css";
 
 function component() {
-    const element = document.createElement("div");
+    const contentsDivEl = document.getElementById('contents');
 
-    element.innerHTML = "Thanks for visiting!";
+    const heading = getHeading();
+    const theWhyHeader = getTheWhyHeader();
+    const theWhySection = getTheWhySection();
+    const theWhatHeader = getTheWhatHeader();
+    const theWhatSection = getTheWhatSection();
+    const footer = getFooter();
 
-    return element;
+    contentsDivEl.appendChild(heading);
+    contentsDivEl.appendChild(theWhyHeader);
+    contentsDivEl.appendChild(theWhySection);
+    contentsDivEl.appendChild(theWhatHeader);
+    contentsDivEl.appendChild(theWhatSection);
+    contentsDivEl.appendChild(footer);
+
+    return contentsDivEl;
 }
 
 document.body.appendChild(component());
