@@ -29,9 +29,9 @@ const getTheWhatSection = () => {
     const secondWhatPEl = document.createElement('p');
     const secondWhatTextNode = "You can find my work for exercises from The Odin Project here:";
     const secondWhatULEl = document.createElement('ul');
-    secondWhatULEl.innerHTML = `<li><a href="./pages/example.html">Example Page</a> | </li>
+    secondWhatULEl.innerHTML = `<li><a href="./pages/example.html">Generic Example Page</a> | </li>
     <li><a href="./pages/calculator.html">Calculator</a> | </li>
-    <li><a href="./pages/tictactoe.html">Tic Tac Toe</a></li>
+    <li><a href="./pages/tictactoe.html">Tic Tac Toe</a> | </li>
     <li><a href="./pages/restaurant.html">A Restaurant Page</a></li>`;
 
     firstWhatPEl.appendChild(document.createTextNode(firstWhatTextNode));

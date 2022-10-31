@@ -22,20 +22,66 @@ const h2El = document.createElement("h2");
 const navEl = document.createElement("nav");
 const ulEl = document.createElement("ul");
 const liAppsEl = document.createElement("li");
+liAppsEl.setAttribute("class", "tabs");
 liAppsEl.textContent = "Appetizers";
 const liEntreesEl = document.createElement("li");
+liEntreesEl.setAttribute("class", "tabs");
 liEntreesEl.textContent = "Entrees";
 const liDessertsEl = document.createElement("li");
+liDessertsEl.setAttribute("class", "tabs");
 liDessertsEl.textContent = "Desserts";
+const menuDivEl = document.createElement("div");
 // First tab
 const pAppsEl = document.createElement("p");
-pAppsEl.innerHTML = "Sticky Baked Chicken Wings<br />Crab Cakes with Horseradish Cream<br />Caramelized Onion Dip<br />Deviled Eggs With Country Ham<br />Hogs in a Blanket<br />Baked Buffalo Chicken Wings<br />Fried Pickles with Spicy Mayonnaise<br />Brioche Crab Melts.";
+pAppsEl.innerHTML = "Sticky Baked Chicken Wings<br /><br />" +
+    "Crab Cakes with Horseradish Cream<br /><br />" +
+    "Caramelized Onion Dip<br /><br />" +
+    "Deviled Eggs With Country Ham<br /><br />" +
+    "Hogs in a Blanket<br /><br />" +
+    "Baked Buffalo Chicken Wings<br /><br />" +
+    "Fried Pickles with Spicy Mayonnaise<br /><br />" +
+    "Brioche Crab Melts.";
 // Second tab
 const pEntreesEl = document.createElement("p");
-pEntreesEl.innerHTML = "Hot Dog from Nathan's Famous in Coney Island.<br />Bagel from Bagel Hole in Park Slope.<br />Porter House from Peter Luger Steak House in Williamsburg.<br />Fried Calamari at Randazzo's Clam Bar in Sheepshead Bay.<br />Italian Biscotti from Court Pastry in Carroll Gardens.";
+pEntreesEl.innerHTML = "Hot Dog from Nathan's Famous in Coney Island.<br /><br />" +
+    "Bagel from Bagel Hole in Park Slope.<br /><br />" +
+    "Porter House from Peter Luger Steak House in Williamsburg.<br /><br />" +
+    "Fried Calamari at Randazzo's Clam Bar in Sheepshead Bay.<br /><br />" +
+    "Italian Biscotti from Court Pastry in Carroll Gardens.";
 // Third tab
 const pDessertsEl = document.createElement("p");
-pDessertsEl.innerHTML = "Chocolate Chip Cookies<br />Chocolate Brownies<br />Chocolate Cake<br />            Chocolate Mousse<br />Chocolate Ice Cream<br />            Chocolate Milkshake<br />Chocolate Fondue<br />Chocolate Truffles";
+pDessertsEl.innerHTML = "Chocolate Chip Cookies<br /><br />" +
+    "Chocolate Brownies<br /><br />" +
+    "Chocolate Cake<br /><br />" +
+    "Chocolate Mousse<br /><br />" +
+    "Chocolate Ice Cream<br /><br />" +
+    "Chocolate Milkshake<br /><br />" +
+    "Chocolate Fondue<br /><br />" +
+    "Chocolate Truffles";
+
+liAppsEl.addEventListener("click", () => {
+    if (menuDivEl.hasChildNodes()) {
+        menuDivEl.removeChild(menuDivEl.firstChild);
+    }
+
+    menuDivEl.appendChild(pAppsEl);
+});
+
+liEntreesEl.addEventListener("click", () => {
+    if (menuDivEl.hasChildNodes()) {
+        menuDivEl.removeChild(menuDivEl.firstChild);
+    }
+
+    menuDivEl.appendChild(pEntreesEl);
+});
+
+liDessertsEl.addEventListener("click", () => {
+    if (menuDivEl.hasChildNodes()) {
+        menuDivEl.removeChild(menuDivEl.firstChild);
+    }
+
+    menuDivEl.appendChild(pDessertsEl);
+});
 
 h2El.textContent = "Menu";
 
@@ -46,9 +92,8 @@ navEl.appendChild(ulEl);
 
 mainEl.appendChild(h2El);
 mainEl.appendChild(navEl);
-mainEl.appendChild(pAppsEl);
-mainEl.appendChild(pEntreesEl);
-mainEl.appendChild(pDessertsEl);
+mainEl.appendChild(menuDivEl);
+menuDivEl.appendChild(pAppsEl);
 
 // Footer stuff
 const footerEl = document.createElement("footer");

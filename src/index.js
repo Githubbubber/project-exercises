@@ -4,7 +4,7 @@ import getHeading from "./sections/Heading";
 import { getTheWhyHeader, getTheWhySection } from "./sections/Why";
 import { getTheWhatHeader, getTheWhatSection } from "./sections/What";
 import getFooter from "./sections/Footer";
-import "./css/general-styles.css";
+import "./general-styles.css";
 
 function component() {
     const contentsDivEl = document.getElementById('contents');
