@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+    <head>
+        <meta charset='utf-8' />
+        <link href="../css/todo.css" rel="stylesheet" />
+        <title>Todo List</title>
+    </head>
+
+    <body>
+        <div id="itemsList"></div>
+        <script>
+            class Item {
+                constructor(id, title, description, dueDate, priority) {
+                    this.id = id;
+                    this.title = title;
+                    this.description = description;
+                    this.dueDate = dueDate;
+                    this.priority = priority;
+                }
+
+                getItem() {
+                    return this;
+                }
+
+                setItem(id, title, description, dueDate, priority) {
+                    this.id = id;
+                    this.title = title;
+                    this.description = description;
+                    this.dueDate = dueDate;
+                    this.priority = priority;
+                }
+            }
+
+            class Project {
+                constructor(type) {
+                    this.type = type;
+                    this.items = [];
+                }
+
+                addItem(item) {
+                    this.items.push(item);
+                }
+
+                removeItem(item) {
+                    this.items = this.items.filter(i => i !== item);
+                }
+
+                getAllItems() {
+                    return this.items;
+                }
+
+                getItem(id) {
+                    return this.items.find(item => item.id === id);
+                }
+            }
+
+            const defaultProject = new Project('default');
+            const projects = {
+                default: defaultProject
+            };
+            let currentProject = 'default';
+
+            const storeItem = (id, title, description, dueDate, priority = false) => {
+                projects[currentProject].items.push(new Item(id, title, description, dueDate, priority));
+            };
+
+            const displayItems = () => {
+                projects[currentProject].items.forEach(item => {
+                    console.log(item.title);
+                });
+            };
+
+            const showAddItemSection = () => {
+                const divEl = document.createElement('div');
+                const headingEl = document.createElement('h1');
+                headingEl.textContent = 'Todo List';
+
+                const titleInputEl = document.createElement('input');
+                titleInputEl.setAttribute('type', 'text');
+                const descInputEl = document.createElement('input');
+                descInputEl.setAttribute('type', 'text');
+                const dueDateInputEl = document.createElement('input');
+                dueDateInputEl.setAttribute('type', 'date');
+
+                const priorityLabelEl = document.createElement('label');
+                priorityLabelEl.setAttribute("for", "priority");
+                const priorityInputEl = document.createElement('input');
+                const prioritySpanEl = document.createElement('span');
+                const priorityBREl = document.createElement('br');
+                prioritySpanEl.textContent = 'Priority?';
+                priorityInputEl.setAttribute("name", "priority");
+                priorityInputEl.setAttribute('type', 'checkbox');
+                priorityLabelEl.appendChild(priorityInputEl);
+                priorityLabelEl.appendChild(prioritySpanEl);
+                priorityLabelEl.appendChild(priorityBREl);
+
+                const buttonEl = document.createElement('button');
+                buttonEl.textContent = 'Add Item';
+
+                buttonEl.addEventListener('click', () => {
+                    storeItem(projects[currentProject].items.length, titleInputEl.value, descInputEl.value, dueDateInputEl.value, priorityInputEl.checked);
+                });
+
+                divEl.appendChild(headingEl);
+                divEl.appendChild(titleInputEl);
+                divEl.appendChild(descInputEl);
+                divEl.appendChild(dueDateInputEl);
+                divEl.appendChild(priorityLabelEl);
+                divEl.appendChild(buttonEl);
+
+                document.getElementById('itemsList').appendChild(divEl);
+            };
+
+            const displayList = () => {
+                showAddItemSection();
+
+                const itemsListContainer = document.getElementById('itemsList');
+                const pElement = document.createElement('p');
+                const titleSpan = document.createElement('span');
+                const delBtn = document.createElement('button');
+                const currentToDoItemsList = projects[currentProject].getAllItems();
+
+                if (currentToDoItemsList.length < 1) {
+                    pElement.innerHTML = "<strong>To Do List:</strong> <br /><em>Currently empty. Please add items above.</em>";
+                    itemsListContainer.appendChild(pElement);
+                    return;
+                }
+
+                currentToDoItemsList.forEach(toDoProject => {
+                    toDoProject.forEach(item => {
+                        pElement.setAttribute('class', item.id);
+                        titleSpan.textContent = item.title;
+                        delBtn.textContent = 'Delete';
+                        delBtn.setAttribute('class', item.id);
+                        delBtn.addEventListener('click', (e) => {
+                            toDoProject.removeItem(item);
+
+                            let itemsToGrab = itemsListContainer.children;
+
+                            itemsToGrab.forEach(grabbedItem => {
+                                if (grabbedItem.getAttribute("class") === item.id) {
+                                    itemsListContainer.removeChild(grabbedItem);
+                                }
+                            });
+
+                            displayList();
+                        });
+
+                        pElement.appendChild(titleSpan);
+                        pElement.appendChild(delBtn);
+
+                        itemsListContainer.appendChild(pElement);
+                    });
+                });
+            };
+
+            displayList();
+        </script>
+    </body>
+
+</html>
