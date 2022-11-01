@@ -1,4 +1,7 @@
+import getToDo from "../exercises/ToDo.js";
+
 const getTheWhatHeader = () => {
+    const contentsDivEl = document.getElementById("contents");
     const h2WhatEl = document.createElement('h2');
     h2WhatEl.textContent = "The what...";
 
@@ -34,11 +37,23 @@ const getTheWhatSection = () => {
     <li><a href="./pages/tictactoe.html">Tic Tac Toe</a> | </li>
     <li><a href="./pages/restaurant.html">A Restaurant Page</a></li>`;
 
+    const secondLIToDoEl = document.createElement("li");
+    secondLIToDoEl.innerHTML = `<a href="./pages/todo.html">A To Do List</a>`;
+    secondLIToDoEl.addEventListener("click", () => {
+        contentsDivEl.childNodes.forEach((child) => {
+            child.remove();
+        });
+
+        const toDoContents = getToDo();
+        contentsDivEl.appendChild(toDoContents);
+    });
+
     firstWhatPEl.appendChild(document.createTextNode(firstWhatTextNode));
     firstWhatPEl.appendChild(firstWhatULEl);
 
     secondWhatPEl.appendChild(document.createTextNode(secondWhatTextNode));
     secondWhatPEl.appendChild(secondWhatULEl);
+    secondWhatULEl.appendChild(secondLIToDoEl);
 
     theWhatSectionEl.appendChild(firstWhatPEl);
     theWhatSectionEl.appendChild(secondWhatPEl);
