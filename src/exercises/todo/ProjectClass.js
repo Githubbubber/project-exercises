@@ -1,23 +1,25 @@
 class Project {
+    // Retrieve the count of all of the todo items from localStorage
+
     constructor(type) {
         this.type = type;
-        this.items = [];
+        this.todoItems = [];
     }
 
-    addItem(item) {
-        this.items.push(item);
+    addTodoItem(todoItem) {
+        this.todoItems.push(todoItem);
     }
 
-    removeItem(item) {
-        this.items = this.items.filter(i => i !== item);
+    removeTodoItem(todoItem) {
+        this.todoItems = this.todoItems.filter(i => i !== todoItem);
     }
 
-    getAllItems() {
-        return this.items;
+    getAllTodoItems() {
+        return this.todoItems;
     }
 
-    getItem(id) {
-        return this.items.find(item => item.id === id);
+    getTodoItem(id) {
+        return this.todoItems.find(todoItem => todoItem.id === id);
     }
 }
 
