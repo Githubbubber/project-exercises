@@ -1,6 +1,6 @@
 {
   "name": "freecodecamp_top",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Running through the exercises of two sources: Freecodecamp and The Odin Project.",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "webpack"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mekesia Brown",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.7.1",
