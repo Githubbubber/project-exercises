@@ -17,6 +17,5 @@ li {
 .hello {
     color: red;  
     font-family: 'MyFont';
-    background: url('./icon.png');
 }
 /* Delete this */
