@@ -4,6 +4,7 @@
   "description": "Running through the exercises of two sources: Freecodecamp and The Odin Project.",
   "private": true,
   "scripts": {
+    "start": "webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
@@ -11,10 +12,12 @@
   "author": "Mekesia Brown",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^6.7.1",
-    "style-loader": "^3.3.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
     "lodash": "^4.17.21"
