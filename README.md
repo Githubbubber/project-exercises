@@ -1,6 +1,6 @@
-# Project Exercises
+# Project projects
 
-Running through the exercises of two sources: Freecodecamp and The Odin Project.
+Running through the projects of two sources: Freecodecamp and The Odin Project.
 
 ## Technologies Used
 JavaScript (ES6+)
