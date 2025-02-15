@@ -97,11 +97,36 @@ const htmlCopydivFifth7El = "Etc:<br />" +
     "    <li>Use of the localStorage feature of the Web Storage API (add, update, archive, and delete data)</li>" +
     "</ul>";
 
+const firstWhatNames = [
+    ["accessible-quiz.html", "Accessible Quiz"],
+    ["admin-dashboard.html", "Admin Dashboard"],
+    ["admin-dashboard2.html", "Admin Dashboard Two"],
+    ["balance-sheet.html", "A Balance Sheet"],
+    ["calculator.html", "A Calculator"],
+    ["cats.html", "A Page Dedicated to Cats"],
+    ["cats-two.html", "Another Page Dedicated to Cats"],
+    ["city.html", "City... Resize to see day to night"],
+    ["coffee-shop.html", "Camper Cafe"],
+    ["example.html", "Example"],
+    ["ferris-wheel.html", "A Fun Ferris Wheel Animation"],
+    ["form.html", "A pretty HTML Form"],
+    ["magazine.html", "Bored? Read a freeCodeCamp Magazine"],
+    ["markers.html", "CSS Color Markers"],
+    ["nutrition-label.html", "US Nutrition Label"],
+    ["penguin.html", "Penguin Animation"],
+    ["piano.html", "freeCodeCamp Piano"],
+    ["picasso.html", "A Picasso-Inspired Painting"],
+    ["restaurant.html", "Restaurant"],
+    ["rothko.html", "Rothko Painting Creation"],
+    ["tictactoe.html", "Tic Tac Toe"],
+];
+
 export {
     htmlCopyulThirdEl,
     htmlCopyliFourthEl,
     htmlCopydivFifth1El,
     htmlCopydivFifth2El,
     htmlCopydivFifth5El,
-    htmlCopydivFifth7El
+    htmlCopydivFifth7El,
+    firstWhatNames
 };
