@@ -1,49 +1,113 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const letterToUpperCase = (letter) => {
+    return letter.toUpperCase();
+};
+let htmlPages = [
+    "accessible-quiz", "admin-dashboard", "admin-dashboard",
+    "balance-sheet", "tictactoe",
+    "calculator", "cats", "cats-two", "city", "coffee-shop",
+    "example", "ferris-wheel", "form", "magazine", "markers",
+    "nutrition-label", "penguin", "piano", "picasso",
+    "restaurant", "rothko"
+];
+let wpPluginsForPages = htmlPages.map(page => {
+    const wordsForTitle = page.split("-");
+    let capitalizedWords = [];
+    let finalTitle = "";
+
+    wordsForTitle.forEach(word => {
+        let capitalizedWord = word.replace(/^a-z/, letterToUpperCase);
+
+        capitalizedWords.push(capitalizedWord);
+    });
+
+    finalTitle = wordsForTitle.join(" ");
+    let templatePath = "./src/content/pages/" + page + ".html";
+
+    return new HtmlWebpackPlugin({
+        title: finalTitle,
+        template: templatePath,
+        filename: page + ".html",
+        chunk: [page]
+    });
+});
+let entryPoints = {};
+
+for (const page of htmlPages) {
+    const pageProp = page.replace("-", "");
+    let importPath = "./src/projects/js/" + page + ".js";
+
+    entryPoints[pageProp] = {
+        import: path.resolve(__dirname, importPath),
+        dependOn: "shared"
+    };
+};
+
+console.log(wpPluginsForPages);
 
 module.exports = {
     mode: "development",
     entry: {
         index: {
-            import: './src/index.js',
-            dependOn: 'shared',
+            import: path.resolve(__dirname, "./src/index.js"),
+            dependOn: "shared"
         },
-        print: {
-            import: './src/console.js',
-            dependOn: 'shared',
+        todo: {
+            import: path.resolve(__dirname, "./src/projects/todo/todo.js"),
+            dependOn: "shared"
         },
-        shared: 'lodash',
+        rothko: {
+            import: path.resolve(__dirname, "./src/projects/js/rothko.js"),
+            dependOn: "shared",
+        },
+        // ...entryPoints,
+        shared: "lodash",
     },
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
     devServer: {
-        static: './dist',
+        static: "./dist",
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Development',
+            template: "./src/index.html",
+            filename: "index.html",
+            chunk: ["index"]
         }),
+        ...wpPluginsForPages
     ],
     output: {
-        filename: '[name].bundle.js',
+        filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
     },
     optimization: {
-        runtimeChunk: 'single',
+        runtimeChunk: "single",
     },
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                type: "asset/resource",
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/resource',
+                type: "asset/resource",
             }
         ]
     }
