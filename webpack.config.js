@@ -73,6 +73,11 @@ module.exports = {
             filename: "index.html",
             chunk: ["index"]
         }),
+        new HtmlWebpackPlugin({
+            template: "./src/content/pages/todo.html",
+            filename: "todo.html",
+            chunk: ["todo"]
+        }),
         ...wpPluginsForPages
     ],
     output: {
