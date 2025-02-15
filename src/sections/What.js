@@ -11,7 +11,7 @@ const getTheWhatSection = () => {
 
     const theWhatSectionEl = document.createElement('section');
     const firstWhatPEl = document.createElement('p');
-    const firstWhatTextNode = "You can find my revisiting the various FCC exercises with the following pages:";
+    const firstWhatTextNode = "You can find my revisiting the various FCC projects with the following pages:";
     const firstWhatULEl = document.createElement('ul');
 
     const firstWhatNames = [
@@ -63,7 +63,7 @@ const getTheWhatSection = () => {
     const secondWhatNamesLen = secondWhatNames.length;
 
     const secondWhatPEl = document.createElement('p');
-    const secondWhatTextNode = "You can find my work for exercises from The Odin Project here:";
+    const secondWhatTextNode = "You can find my work for projects from The Odin Project here:";
     const secondWhatULEl = document.createElement('ul');
 
     do {
