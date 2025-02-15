@@ -45,8 +45,6 @@ for (const page of htmlPages) {
     };
 };
 
-console.log(wpPluginsForPages);
-
 module.exports = {
     mode: "development",
     entry: {
