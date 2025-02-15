@@ -8,4 +8,4 @@ const getFooter = () => {
     return footerEl;
 };
 
-module.exports = getFooter;
+export default getFooter;

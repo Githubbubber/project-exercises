@@ -22,7 +22,7 @@ const getTheWhySection = () => {
     return theWhySectionEl;
 };
 
-module.exports = {
+export {
     getTheWhyHeader,
     getTheWhySection
 };
