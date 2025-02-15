@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/calculator.css" />
+        <title>Calculator Galore!</title>
+    </head>
+
+    <body>
+        <main>
+            <div id="calc-container">
+                <!-- Error messages-->
+                <div id="errorWindow"></div>
+
+                <!-- Display-->
+                <div id="calc-window-container">
+                    <p id="calc-window"></p>
+                </div>
+
+                <!-- 1, 2, 3, + -->
+                <div class="flex-rows">
+                    <button onclick="addPress('1')">1</button>
+                    <button onclick="addPress('2')">2</button>
+                    <button onclick="addPress('3')">3</button>
+                    <button onclick="addPress('+')">+</button>
+                </div>
+
+                <!-- 4, 5, 6, - -->
+                <div class="flex-rows">
+                    <button onclick="addPress('4')">4</button>
+                    <button onclick="addPress('5')">5</button>
+                    <button onclick="addPress('6')">6</button>
+                    <button onclick="addPress('-')">-</button>
+                </div>
+
+                <!-- 7, 8, 9, * -->
+                <div class="flex-rows">
+                    <button onclick="addPress('7')">7</button>
+                    <button onclick="addPress('8')">8</button>
+                    <button onclick="addPress('9')">9</button>
+                    <button onclick="addPress('*')">*</button>
+                </div>
+
+                <!-- ., 0, ^, / -->
+                <div class="flex-rows">
+                    <button onclick="addPress('.')">.</button>
+                    <button onclick="addPress('0')">0</button>
+                    <button onclick="addPress('^')">Pow</button>
+                    <button onclick="addPress('/')">/</button>
+                </div>
+
+                <!-- =, clr, del -->
+                <div class="flex-rows">
+                    <button onclick="calculate();">Equals</button>
+                    <button onclick="clearPress()">Clear</button>
+                    <button onclick="deletePress()">Delete</button>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            let calcWindow = document.querySelector("#calc-window");
+            let everyPress = [];
+            let results;
+            let answer = 0;
+
+            const display = () => {
+                results = "";
+
+                for (let x = 0; x <= everyPress.length - 1; x++) {
+                    let getNum = Number(everyPress[x]);
+
+                    if (getNum) {
+                        results = results + everyPress[x];
+                    } else {
+                        results = results + " " + everyPress[x] + " ";
+                    }
+                }
+
+                calcWindow.innerHTML = results;
+            };
+
+            const add = (num1, num2) => {
+                return num1 + num2;
+            };
+
+            const subtract = (num1, num2) => {
+                return num1 - num2;
+            };
+
+            const multiply = (num1, num2) => {
+                return num1 * num2;
+            };
+
+            const divide = (num1, num2) => {
+                return num1 / num2;
+            };
+
+            const power = (num1, num2) => {
+                return Math.pow(num1, num2);
+            };
+
+            // Operate function that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+            const operator = (num1, operand, num2) => {
+                if (operand === 42) { // *
+                    return multiply(num1, num2);
+                } else if (operand === 47) { // /
+                    return divide(num1, num2);
+                } else if (operand === 43) { // +
+                    return add(num1, num2);
+                } else if (operand === 45 || operand === 49) { // -
+                    return subtract(num1, num2);
+                } else if (operand === 94) {  // ^
+                    return power(num1, num2);
+                } else if (operand === 46) { // .
+                    // Gotta figure this one out :( )
+                } 
+            };
+            
+            const addPress = (item) => {
+                everyPress.push(item);
+
+                display();
+            };
+
+            const clearPress = () => {
+                everyPress = [];
+            
+                results = "";
+
+                answer = 0;
+
+                calcWindow.innerHTML = results; 
+            };
+
+            const deletePress = () => {
+                everyPress.pop();
+
+                results = results.split(results[results.length - 1])[0];
+
+                calcWindow.innerHTML = results;
+            };
+
+            const calculate = () => {
+                if (results) {
+                    let itemsArray = results.replace(/\s/g, "").split(/(\d*)/g).filter(x => x);
+
+                    let newArray = itemsArray.map(item => {
+                        let temp = Number(item);
+
+                        if (temp) { return temp; } else { return item; }
+                    });
+
+                    if (results.match(/\+|\-|\*|\/|\.|\^/g) === null || results.match(/\d/g) === null || results.length === 1 || newArray.length % 2 === 0) {
+                        let errorWindow = document.querySelector("#errorWindow");
+                
+                        errorWindow.innerHTML = "<p id='msg'>A complete statement is needed for the calculation. Please try again.</p>";
+
+                        setTimeout(() => {
+                            errorWindow.removeChild(document.getElementById("msg"));
+                        }, 3000);
+
+                        clearTimeout();
+                    } else {
+                        for (let x = 0; x < newArray.length - 1; x++) {
+                            if (!Number(newArray[x]) && x !== 0) {
+                                let num1 = answer !== 0 ? answer : newArray[x - 1];
+                                let operand = newArray[x].charCodeAt(0);
+                                let num2 = newArray[x + 1];
+
+                                answer = operator(num1, operand, num2);
+                            }
+                        }
+                    }
+
+                    calcWindow.innerHTML = answer;
+                    results = answer;
+                    everyPress = [answer]
+                }
+            };
+        </script>
+    </body>
+</html>
