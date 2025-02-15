@@ -1,7 +1,7 @@
 {
   "name": "freecodecamp_top",
   "version": "3.0.0",
-  "description": "Running through the exercises of two sources: Freecodecamp and The Odin Project.",
+  "description": "Running through the projects of two sources: Freecodecamp and The Odin Project.",
   "private": true,
   "scripts": {
     "start": "webpack serve --open",
@@ -15,11 +15,14 @@
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
-    "webpack": "^5.74.0",
+    "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "babel-loader": "^9.2.1",
     "lodash": "^4.17.21"
   }
 }
