@@ -1,5 +1,5 @@
 import _ from "lodash";
-import "./content/assets/style.css";
+import "./content/assets/css/style.css";
 
 import getHeading from "./sections/Heading";
 import { getTheWhyHeader, getTheWhySection } from "./sections/Why";

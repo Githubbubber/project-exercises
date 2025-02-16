@@ -1,4 +1,4 @@
-import { firstWhatNames } from "../content/assets/constants";
+import { firstWhatNames } from "../content/assets/js/etc/constants";
 
 const getTheWhatHeader = () => {
     const h2WhatEl = document.createElement('h2');
