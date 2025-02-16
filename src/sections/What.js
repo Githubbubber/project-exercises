@@ -98,7 +98,7 @@ const getTheWhatSection = () => {
     return theWhatSectionEl;
 };
 
-module.exports = {
+export {
     getTheWhatHeader,
     getTheWhatSection
 };
