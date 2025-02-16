@@ -37,7 +37,7 @@ let entryPoints = {};
 
 for (const page of htmlPages) {
     const pageProp = page.replace("-", "");
-    let importPath = "./src/projects/js/" + page + ".js";
+    let importPath = "./src/content/assets/js/" + page + ".js";
 
     entryPoints[pageProp] = {
         import: path.resolve(__dirname, importPath),
@@ -46,7 +46,6 @@ for (const page of htmlPages) {
 };
 
 module.exports = {
-    mode: "development",
     entry: {
         index: {
             import: path.resolve(__dirname, "./src/index.js"),
@@ -60,12 +59,8 @@ module.exports = {
             import: path.resolve(__dirname, "./src/projects/js/rothko.js"),
             dependOn: "shared",
         },
-        // ...entryPoints,
+        ...entryPoints,
         shared: "lodash",
-    },
-    devtool: "inline-source-map",
-    devServer: {
-        static: "./dist",
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -102,7 +97,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ["css-loader"],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
