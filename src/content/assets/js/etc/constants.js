@@ -17,9 +17,8 @@ const htmlCopyulThirdEl = "<li>title</li>" +
     "        <li>priority flags (red priority 1, orange priority 2, blue priority 3, or white priority 4)</li>" +
     "        <li>confetti for completions</li>" +
     "        <li>download for projects</li>" +
-    "        <li>ribbon for bookmarked todos</li>" +
+    "        <li>ribbon for tags/categories to add to a todo</li>" +
     "        <li>22EF ellipsis for collapsed project/todo</li>" +
-    "        <li>tag for keywords to add to a project/todo</li>" +
     "        <li>magnifying glass for general search</li>" +
     "    </ul>" +
     "</li>";
@@ -33,7 +32,7 @@ const htmlCopyliFourthEl = "<strong>Projects</strong> " +
 const htmlCopydivFifth1El = "The creates (all Data Layer):<br />" +
     "<ul>" +
     "    <li>create a new project</li>" +
-    "    <li>Showns a form with fields to fill in the project's title, description, and bookmark option</li>" +
+    "    <li>Showns a form with fields to fill in the project's title, description, and category option</li>" +
     "    <li>also shows an option to create a todo</li>" +
     "</ul>" +
     "<ul>" +
@@ -50,7 +49,7 @@ const htmlCopydivFifth2El = "The views (Data Layer for retrieval, DOM Layer for 
     "    <li>view a single project</li>" +
     "    <li>Showns its list of todos</li>" +
     "    <li>Showns title, description, date created</li>" +
-    "    <li>Shows buttons to edit, bookmark, and archive the project</li>" +
+    "    <li>Shows buttons to edit, tag, and archive the project</li>" +
     "</ul>" +
     "<ul>" +
     "    <li>view a list with all todos in total, with their stages like To Do, Doing, Done</li>" +
@@ -67,7 +66,7 @@ const htmlCopydivFifth2El = "The views (Data Layer for retrieval, DOM Layer for 
 
 const htmlCopydivFifth5El = "The alters (Data Layer for data alterations, DOM Layer for display of forms and verification prompts):<br />" +
     "<ul>" +
-    "    <li>bookmarking a todo/project</li>" +
+    "    <li>tagging a todo/project</li>" +
     "</ul>" +
     "<ul>" +
     "    <li>changing todo priority</li>" +
