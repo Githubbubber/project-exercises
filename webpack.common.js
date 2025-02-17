@@ -5,7 +5,7 @@ const letterToUpperCase = (letter) => {
     return letter.toUpperCase();
 };
 let htmlPages = [
-    "accessible-quiz", "admin-dashboard", "admin-dashboard",
+    "accessible-quiz", "admin-dashboard", "admin-dashboard2",
     "balance-sheet", "tictactoe",
     "calculator", "cats", "cats-two", "city", "coffee-shop",
     "example", "ferris-wheel", "form", "magazine", "markers",
@@ -52,11 +52,11 @@ module.exports = {
             dependOn: "shared"
         },
         todo: {
-            import: path.resolve(__dirname, "./src/projects/todo/todo.js"),
+            import: path.resolve(__dirname, "./src/content/assets/js/todo/todo.js"),
             dependOn: "shared"
         },
         rothko: {
-            import: path.resolve(__dirname, "./src/projects/js/rothko.js"),
+            import: path.resolve(__dirname, "./src/content/assets/js/rothko.js"),
             dependOn: "shared",
         },
         ...entryPoints,
