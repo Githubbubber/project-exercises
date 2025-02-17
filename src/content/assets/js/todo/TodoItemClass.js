@@ -1,5 +1,6 @@
-class Item {
+class TodoItem {
     // Retrieve the count of all of the todo items from localStorage
+    // The application logic, or data layer 
 
     constructor(id, title, description, dueDate, priority) {
         this.id = id;
@@ -9,42 +10,37 @@ class Item {
         this.priority = priority;
         this.completed = false;
     }
-    
-    setCompleteStatus(status) {
-        this.completed = status;
-    }
 
-    getTitle() {
-        return this.title;
-    }
+    getTitle() { return this.title; }
 
-    getDesc() {
-        return this.description;
-    }
+    getDesc() { return this.description; }
 
-    getDueDate() {
-        return this.dueDate;
-    }
+    getDueDate() { return this.dueDate; }
 
-    getPriority() {
-        return this.priority;
-    }
+    getNotes() { return this.notes; }
 
-    setTitle(title) {
-        this.title = title;
-    }
+    getProjectInfo() { return this.projectInfo; }
 
-    setDesc(description) {
-        this.description = description;
-    }
+    // "fun", "work", "school", "errand", or "other"
+    getCategories() { return this.categories; }
 
-    setDueDate(dueDate) {
-        this.dueDate = dueDate;
-    }
+    // 1, 2, 3, or 4
+    getPriority() { return this.priority; }
 
-    setPriority(priority) {
-        this.priority = priority;
-    }
+    // "to-do", "doing", "done"
+    getDoingStage() { return this.doingStage; }
+
+    getIsTagged() { return this.isTagged; }
+
+    setTitle(title) { this.title = title; }
+
+    setDesc(description) { this.description = description; }
+
+    setDueDate(dueDate) { this.dueDate = dueDate; }
+
+    setPriority(priority) { this.priority = priority; }
+
+    setCompleteStatus(status) { this.completed = status; }
 }
 
-module.exports = Item;
+module.exports = TodoItem;
