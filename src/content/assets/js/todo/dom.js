@@ -1,4 +1,5 @@
 // UI/DOM Logic (dom.js) updates what the user sees on the screen
+// The UI logic, or DOM layer 
 
 import "../../css/todo.css";
 import storeTodoItem from "./todo.js";

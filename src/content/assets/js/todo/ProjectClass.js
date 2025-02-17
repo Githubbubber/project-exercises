@@ -1,5 +1,6 @@
 class Project {
     // Retrieve the count of all of the todo items from localStorage
+    // The application logic, or data layer 
 
     constructor(type) {
         this.type = type;
