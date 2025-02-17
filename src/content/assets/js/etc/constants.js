@@ -120,6 +120,8 @@ const firstWhatNames = [
     ["tictactoe.html", "Tic Tac Toe"],
 ];
 
+const priorityFlag = [null, "red", "orange", "blue", "purple"];
+
 export {
     htmlCopyulThirdEl,
     htmlCopyliFourthEl,
@@ -127,5 +129,6 @@ export {
     htmlCopydivFifth2El,
     htmlCopydivFifth5El,
     htmlCopydivFifth7El,
-    firstWhatNames
+    firstWhatNames,
+    priorityFlag
 };
