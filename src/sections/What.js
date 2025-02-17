@@ -34,7 +34,7 @@ const getTheWhatSection = () => {
     } while (firstItem < firstWhatNamesLen);
 
     const lastFirstWhatLi = document.createElement('li');
-    lastFirstWhatLi.innerHTML = "<a href='./pages/admin-dashboard2.html'>Admin Dashboard</a> and <a href='./pages/admin-dashboard.html'>the first attempt</a>";
+    lastFirstWhatLi.innerHTML = "<a href='admin-dashboard2.html'>Admin Dashboard</a> and <a href='admin-dashboard.html'>the first attempt</a>";
 
     firstWhatULEl.appendChild(lastFirstWhatLi);
 
@@ -67,7 +67,7 @@ const getTheWhatSection = () => {
     } while (secondItem < secondWhatNamesLen);
 
     const lastSecondWhatLi = document.createElement('li');
-    lastSecondWhatLi.innerHTML = "<a href='./pages/restaurant.html'>A Restaurant Page</a>";
+    lastSecondWhatLi.innerHTML = "<a href='restaurant.html'>A Restaurant Page</a>";
 
     secondWhatULEl.appendChild(lastSecondWhatLi);
 
