@@ -1,7 +1,8 @@
 // Application Logic (todo.js) handles todo creation and state.
+// The application logic, or data layer 
 
-import TodoItem from "../todo/TodoItemClass";
-import Project from "../todo/ProjectClass";
+import TodoItem from "./TodoItemClass";
+import Project from "./ProjectClass";
 
 const defaultProject = new Project('default');
 const projects = [defaultProject];
