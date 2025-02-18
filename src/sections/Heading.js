@@ -1,7 +1,7 @@
 const getHeading = () => {
     const h1El = document.createElement('h1');
 
-    h1El.textContent = "Details on this page";
+    h1El.textContent = "Welcome!";
 
     return h1El;
 };

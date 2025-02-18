@@ -2,28 +2,21 @@ import _ from "lodash";
 import "./content/assets/css/style.css";
 
 import getHeading from "./sections/Heading";
-import { getTheWhyHeader, getTheWhySection } from "./sections/Why";
-import { getTheWhatHeader, getTheWhatSection } from "./sections/What";
-import getBodyContents from "./sections/BodyContents";
 import getFooter from "./sections/Footer";
 
+// Note: bodySection will be swapped out with page contents when navigated to.
+// This will prevent content bodySection may still have from being loaded
 function component() {
     const contentsDivEl = document.createElement('div');
+    const bodySection = document.createElement("section");
 
     const heading = getHeading();
-    const theWhyHeader = getTheWhyHeader();
-    const theWhySection = getTheWhySection();
-    const theWhatHeader = getTheWhatHeader();
-    const theWhatSection = getTheWhatSection();
-    const bodyContents = getBodyContents();
     const footer = getFooter();
 
+    bodySection.setAttribute("id", "bodyContents");
+
     contentsDivEl.appendChild(heading);
-    contentsDivEl.appendChild(theWhyHeader);
-    contentsDivEl.appendChild(theWhySection);
-    contentsDivEl.appendChild(theWhatHeader);
-    contentsDivEl.appendChild(theWhatSection);
-    contentsDivEl.appendChild(bodyContents);
+    contentsDivEl.appendChild(bodySection);
     contentsDivEl.appendChild(footer);
 
     return contentsDivEl;

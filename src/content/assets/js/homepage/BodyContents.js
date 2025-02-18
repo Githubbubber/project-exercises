@@ -5,7 +5,7 @@ import {
     htmlCopydivFifth2El,
     htmlCopydivFifth5El,
     htmlCopydivFifth7El
-} from "../content/assets/js/etc/constants";
+} from "../etc/constants";
 
 const getBodyContents = () => {
     const ulContainerEl = document.createElement('ul');
