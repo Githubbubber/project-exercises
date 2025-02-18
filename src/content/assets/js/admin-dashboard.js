@@ -31,7 +31,7 @@ fetch(catFactsURL)
             card.appendChild(cardIcon2);
             card.appendChild(cardIcon3);
 
-            allCards.appendChild(card);
+            // allCards.appendChild(card);
         }
     })
     .catch(err => console.log(err));
