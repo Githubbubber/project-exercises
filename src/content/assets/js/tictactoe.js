@@ -156,6 +156,6 @@ const game = (moveX, moveY) => {
 // Game board
 const boardSection = drawGame();
 
-ticTacToe.appendChild(boardSection);
+// ticTacToe.appendChild(boardSection);
 
 
