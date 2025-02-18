@@ -7,7 +7,7 @@ const imgEl = document.createElement("img");
 const spanForH1 = document.createElement("span");
 const pDescEl = document.createElement("p");
 
-imgEl.setAttribute("src", "../img/icon.png");
+imgEl.setAttribute("src", "#"); // src/content/assets/icon.jpg
 imgEl.setAttribute("alt", "Icon");
 spanForH1.textContent = "Restaurant";
 pDescEl.textContent = "A lively, Barcelona-inspired tapas bar serving Spanish classics, seasonal specials, and curated cocktails in a vibrant and contemporary space.";
@@ -109,8 +109,8 @@ const pageBody = document.getElementById("content");
 const firstHREl = document.createElement("hr");
 const lastHREl = document.createElement("hr");
 
-pageBody.appendChild(headerEl);
-pageBody.appendChild(firstHREl);
-pageBody.appendChild(mainEl);
-pageBody.appendChild(lastHREl);
-pageBody.appendChild(footerEl);
+// pageBody.appendChild(headerEl);
+// pageBody.appendChild(firstHREl);
+// pageBody.appendChild(mainEl);
+// pageBody.appendChild(lastHREl);
+// pageBody.appendChild(footerEl);
