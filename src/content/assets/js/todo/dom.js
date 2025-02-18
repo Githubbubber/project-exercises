@@ -3,6 +3,7 @@
 
 import "../../css/todo.css";
 import storeTodoItem from "./todo.js";
+import { storageAvailable } from "../etc/constants.js"
 
 const showAddTodoItemSection = () => {
     const divEl = document.createElement('div');
@@ -115,14 +116,16 @@ const displayTodoList = () => {
 };
 
 const getTodo = () => {
-    const contentsDivEl = document.getElementById("contents");
+    if (storageAvailable("localStorage")) {
+        const contentsDivEl = document.getElementById("contents");
 
-    contentsDivEl.childNodes.forEach((child) => {
-        child.remove();
-    });
+        contentsDivEl.childNodes.forEach((child) => {
+            child.remove();
+        });
 
-    contentsDivEl.appendChild(displayTodoInput());
-    contentsDivEl.appendChild(displayTodoList());
+        contentsDivEl.appendChild(displayTodoInput());
+        contentsDivEl.appendChild(displayTodoList());
+    }
 };
 
 export default getTodo;

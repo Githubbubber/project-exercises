@@ -1,153 +1,490 @@
 <!DOCTYPE html>
 <html lang='en'>
+
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="../css/todo.css" rel="stylesheet" />
+
         <title>Todo List</title>
+
+        <style>
+            a {
+                text-decoration: none;
+            }
+
+            .icons {
+                font-size: 2em;
+                color: gold;
+                margin: 0 3px;
+            }
+        </style>
     </head>
 
     <body>
         <div id="itemsList"></div>
-        <button id="add-todo"></button>
-        <form>
-            <input type="text" name="todo-title" id="todo-title" />
-            <input type="text" name="todo-priority" id="todo-priority" />
-        </form>
 
-        <ul>
-            <li>Todo objects to be made from factories or constructors/classes</li>
-            <li>Properties for todo objects:</li>
+        <!-- Creating a todo item  -->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; width: 40%; text-align: center;">
+                Create A Todo
+                Item
+            </div>
 
-            <ul>
-                <li>title</li>
-                <li>description</li>
-                <li>dueDate</li>
-                <li>priority</li>
-                <li>notes</li>
-                <li>checklist</li>
-                <li>Icons from https://home.unicode.org: 
-                    <ul>
-                        <li>002B plus for a new project/todo</li>
-                        <li>archive for removing todo from a project, or a project from view</li>
-                        <li>002D minus for a delete of a project/todo</li>
-                        <li>pencil for an edit of a project/todo</li>
-                        <li>checkbox (un)selected</li>
-                        <li>save</li>
-                        <li>&2219; bullets</li>
-                        <li>calendar</li>
-                        <li>priority flags (red priority 1, orange priority 2, blue priority 3, or white priority 4)</li>
-                        <li>confetti for completions</li>
-                        <li>download for projects</li>
-                        <li>ribbon for bookmarked todos</li>
-                        <li>22EF ellipsis for collapsed project/todo</li>
-                        <li>tag for keywords to add to a project/todo</li>
-                        <li>magnifying glass for general search</li>
-                    </ul>
-                </li>
-            </ul>
+            <form style="display: inline-block;">
+                <input type="text" name="todo-title" id="todo-title"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="What is the title?" />
+                <input type="text" name="todo-desc" id="todo-desc"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="Description?" />
+                Due Date?<input type="date" name="todo-date" id="todo-date"
+                    style="border: 1px solid grey; display: block;" />
+                <input type="text" name="todo-notes" id="todo-notes"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="What are the notes?" />
+                <input type="text" name="todo-project" id="todo-project"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="Connected project title?" />
 
-            <li>
-                <strong>Projects</strong> 
-                or 
-                separate <strong>lists</strong> 
-                of todos: Categories for todo objects, as groups. Note: When first opening the app, the user will see a default project where all todos are placed
-            </li>
-            
-            <li>
-                <h3>Separation of logic into modules: The Application Logic (Data Layer) and the UI Logic (DOM Layer)</h3>
+                <label for="todo-status">Status:</label>
+                <select name="todo-status" id="todo-status"
+                    style="border: 1px solid grey; display: block;">
+                    <option>Please choose</option>
+                    <option value="todo">To Do</option>
+                    <option value="doing">Doing</option>
+                    <option value="done">Done</option>
+                </select>
 
-                <div>The creates (all Data Layer):<br />
-                    <ul>
-                        <li>create a new project</li>
-                        <li>Showns a form with fields to fill in the project's title, description, and bookmark option</li>
-                        <li>also shows an option to create a todo</li>
-                    </ul>
-                    <ul>
-                        <li>creating new todo (addTodo(), with stages like To Do, Doing, Done)</li>
-                    </ul>
-                </div>
-                <br />
+                <label for="todo-priority">Priority:</label>
+                <select name="todo-priority" id="todo-priority"
+                    style="border: 1px solid grey; display: block;">
+                    <option>Please choose</option>
+                    <option value="one">1</option>
+                    <option value="two">2</option>
+                    <option value="three">3</option>
+                    <option value="four">4</option>
+                </select>
 
-                <div>The views (Data Layer for retrieval, DOM Layer for display):<br />
-                    <ul>
-                        <li>view a list with all projects</li>
-                        <li>The list of projects will shown each one by its title and date created.</li>
-                        <li>Title links to view of the project</li>
-                    </ul>
-                    <ul>
-                        <li>view a single project</li>
-                        <li>Showns its list of todos</li>
-                        <li>Showns title, description, date created</li>
-                        <li>Shows buttons to edit, bookmark, and archive the project</li>
-                    </ul>
-                    <ul>
-                        <li>view a list with all todos in total, with their stages like To Do, Doing, Done</li>
-                    </ul>
-                    <ul>
-                        <li>view a list with all todos in a single project, with their stages like To Do, Doing, Done</li>
-                    </ul>
-                    <ul>
-                        <li>view one todo, with its stage like To Do, Doing, Done</li>
-                    </ul>
-                    <ul>
-                        <li>viewing one todo with edit and archive options</li>
-                    </ul>
-                </div>
-                <br />
-                
-                <div>The edits (all Data Layer):<br />
-                </div>
-                <br />
-                
-                <div>The delete from archives (all Data Layer):<br />
-                    <ul>
-                        <li>delete a project/todo from the archive (removeTodo())</li>
-                    </ul>
-                </div>
-                <br />
-                
-                <div>The alters (Data Layer for data alterations, DOM Layer for display of forms and verification prompts):<br />
-                    <ul>
-                        <li>bookmarking a todo/project</li>
-                    </ul>
-                    <ul>
-                        <li>changing todo priority</li>
-                    </ul>
-                    <ul>
-                        <li>setting todos as complete (markComplete())</li>
-                    </ul>
-                    <ul>
-                        <li>
-                            Storing todo item data (array)
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            Storing project item data (array)
-                        </li>
-                    </ul>
-                </div>
-                <br />
-                
-                <div>The archives (Data Layer for data archival and restoration, DOM Layer for display of archive and restore options):<br />
-                </div>
-                <br />
-                
-                <div>Etc:<br />
-                    <ul>
-                        <li>legend logic. Ex: {next Friday}, #1 for red priority, etc. (Data Layer)</li>
-                    </ul>
-                    <ul>        
-                        <li>Use of the date-fns library</li>
-                    </ul>
-                    <ul>
-                        <li>Use of the localStorage feature of the Web Storage API (add, update, archive, and delete data)</li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+                <label for="todo-cats">Categories:</label>
+                <select name="todo-cats" id="todo-cats"
+                    style="border: 1px solid grey; display: block;">
+                    <option>Please choose</option>
+                    <option value="fun">Fun</option>
+                    <option value="work">Work</option>
+                    <option value="school">School</option>
+                    <option value="errand">Errand</option>
+                    <option value="other">Other</option>
+                </select>
 
-        <script src="/todo/index.js"> </script>
+                <button id="add-todo"
+                    style="border: 1px solid red; display: block;">
+                    <span class="icons" id="add-todo">&#x2BB0;</span>
+                    Add Todo Item
+                </button>
+            </form>
+        </div>
+
+        <!-- Creating a project  -->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; width: 40%;text-align: center;">
+                Create A Project
+            </div>
+
+            <form style="display: inline-block;">
+                <input type="text" name="todo-project-title"
+                    id="todo-project-title"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="Connected project title?" />
+                <input type="text" name="todo-project-desc"
+                    id="todo-project-desc"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="Description?" />
+                <input type="text" name="todo-notes" id="todo-project-notes"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="What are the notes?" />
+                <br />
+                <button id="add-project"
+                    style="border: 1px solid red; display: inline-block;">
+                    <span class="icons" id="add-project">&#x2BB0;</span>
+                    Add Project
+                </button>
+            </form>
+        </div>
+
+        <!-- Viewing an empty todos page -->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; text-align: center;">
+                There are no Todo items
+            </div>
+        </div>
+
+        <!-- Viewing a single todo item -->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; width: 40%; text-align: center;">
+                Todo Item Details
+                <br />
+                Date Created: 1/1/2025
+            </div>
+            <div style="display: inline-block;">
+                <div
+                    style="background-color: green; color: white; width: fit-content;border-radius: 50%; padding: 10%;">
+                    1</div>
+                <p>Title: <span style="color: rgb(238, 125, 84)">Never A Dull
+                        Day</span></p>
+                <p>Description: <span style="color: rgb(238, 125, 84)">Today it
+                        is snowing so I have to shovel</span></p>
+                <p>&#128197; <span
+                        style="color: rgb(238, 125, 84)">1/1/2024</span></p>
+                <p>Notes: <span style="color: rgb(238, 125, 84)">This will be
+                        done by the evening</span></p>
+                <p>Project: <span style="color: rgb(238, 119, 75)">N/A</span>
+                </p>
+                <p>Status: <span style="color: rgb(238, 119, 75)">Doing</span>
+                </p>
+                <p>Categories: Errand, Other: shovel, Other: outdoors</p>
+                <form>
+                    <label for="todo-status-update">Status:</label>
+                    <select name="todo-status" id="todo-status-update"
+                        style="border: 1px solid grey; display: block;">
+                        <option>Please choose</option>
+                        <option value="todo">To Do</option>
+                        <option value="doing">Doing</option>
+                        <option value="done">Done</option>
+                    </select>
+
+                    <label for="todo-priority-update">Priority:</label>
+                    <select name="todo-priority" id="todo-priority-update"
+                        style="border: 1px solid grey; display: block;">
+                        <option>Please choose</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                    </select>
+
+                    <label for="todo-category-update">Change category:</label>
+                    <select name="todo-cats" id="todo-category-update"
+                        style="border: 1px solid grey; display: block;">
+                        <option>Please choose</option>
+                        <option value="fun">Fun</option>
+                        <option value="work">Work</option>
+                        <option value="school">School</option>
+                        <option value="errand">Errand</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <button style="border: 1px solid red; display: block;">
+                        <span class="icons">&#x2BB0;</span>
+                        Update
+                    </button>
+                </form>
+
+                <p>Alter Todo: &#10000; &minus; &#x1F516;</p>
+            </div>
+        </div>
+
+        <!-- Viewing a single project (with todos)-->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; width: 40%; text-align: center;">
+                <p>
+                    Project Title: Classroom Lessons
+                    <br />
+                    Description: Creating a curriculum for the summer program
+                    <br />
+                    Date Created: 1/1/2025
+                </p>
+            </div>
+
+            <div style="display: inline-block;">
+                <div style="border-bottom: 2px solid black;">
+                    <span
+                        style="background-color: green; color: white; width: fit-content;border-radius: 50%; padding: 5px 10px;">
+                        1</span>
+                    <a href="#" style="color: rgb(238, 125, 84)">
+                        Find an assistant
+                    </a>
+                    <a href="#" style="text-decoration: none;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <span
+                        style="background-color: blue; color: white; width: fit-content;border-radius: 50%;  padding: 5px 10px;">
+                        3</span>
+                    <a href="#" style="color: rgb(238, 125, 84)">Have assistant
+                        create
+                        lessons
+                    </a>
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <a href="#" style="color: rgb(238, 125, 84)">Run through the
+                        lessons
+                    </a>
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <a href="#" style="color: rgb(238, 125, 84)">Approve lessons
+                    </a>
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <a href="#" style="color: rgb(238, 125, 84)">Hold classes
+                        with
+                        lessons
+                    </a>
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <span
+                        style="background-color: orange; color: white; width: fit-content; border-radius: 50%; padding: 5px 10px;">
+                        2</span>
+                    <a href="#" style="color: rgb(238, 125, 84)">Collect
+                        feedback
+                    </a>
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <input type="text" name="todo-notes" id="todo-project-notes"
+                    style="border: 1px solid grey; display: block;"
+                    placeholder="What are the notes?" />
+                <p>Alter Project: &#10000; &minus; &#x1F516;</p>
+            </div>
+        </div>
+
+        <!-- Viewing a single project (empty)-->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; width: 40%; text-align: center;">
+                <p>
+                    Project Title: 2026 Classroom Lessons
+                    <br />
+                    Description: Placeholder for 2026 work
+                    <br />
+                    Date Created: 1/1/2025
+                </p>
+            </div>
+
+            <div style="display: inline-block;">
+                <p>Number of Todos: <span style="color: orange">Empty
+                        <button
+                            style="border: 1px solid red; display: inline-block;">
+                            <span class="icons">&#x2BB0;</span>
+                            Add Todo to Project
+                        </button></span></p>
+                <p>Alter Project: &#10000; &minus; &#x1F516;</p>
+            </div>
+        </div>
+
+        <!-- Viewing a list of todo items (10 at a time) -->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; width: 40%; text-align: center;">
+                All Todos. Note: All todos will be placed in a default project
+                unless allocated elsewhere
+            </div>
+
+            <div style="display: inline-block;">
+                <div style="border-bottom: 2px solid black;">
+                    <span
+                        style="background-color: green; color: white; width: fit-content;border-radius: 50%; padding: 5px 10px;">
+                        1</span>
+                    <a href="#" style="color: rgb(238, 125, 84)">
+                        Find an assistant
+                    </a>
+                    <br />
+                    Status: Doing
+                    <a href="#" style="text-decoration: none;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <span
+                        style="background-color: blue; color: white; width: fit-content;border-radius: 50%;  padding: 5px 10px;">
+                        3</span>
+                    <a href="#" style="color: rgb(238, 125, 84)">Have assistant
+                        create
+                        lessons
+                    </a>
+                    <br />
+                    Status: Doing
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <a href="#" style="color: rgb(238, 125, 84)">Run through the
+                        lessons
+                    </a>
+                    <br />
+                    Status: Done
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <a href="#" style="color: rgb(238, 125, 84)">Approve lessons
+                    </a>
+                    <br />
+                    Status: Done
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <a href="#" style="color: rgb(238, 125, 84)">Hold classes
+                        with
+                        lessons
+                    </a>
+                    <br />
+                    Status: To Do
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <span
+                        style="background-color: orange; color: white; width: fit-content; border-radius: 50%; padding: 5px 10px;">
+                        2</span>
+                    <a href="#" style="color: rgb(238, 125, 84)">Collect
+                        feedback
+                    </a>
+                    <br />
+                    Status: To Do
+                    <a href="#"
+                        style="text-decoration: none; display: inline;">&minus;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Viewing a list of projects (10 at a time) -->
+        <div style="border: 1px solid green;">
+            <div
+                style="display: inline-block; font-size: 2em; width: 40%; text-align: center;">
+                All Projects
+            </div>
+
+            <div style="display: inline-block;">
+                <div style="border-bottom: 2px solid black;">
+                    <p>
+                        <a href="#" style="color: rgb(238, 125, 84)">
+                            Find an assistant
+                        </a>
+                        <a href="#" style="text-decoration: none;">&minus;</a>
+                    </p>
+
+                    <p>Number of Todos:
+                        <span style="color: orange">Empty
+                            <button
+                                style="border: 1px solid red; display: inline-block;">
+                                <span class="icons">&#x2BB0;</span>
+                                Add Todo to Project
+                            </button>
+                        </span>
+                    </p>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <p>
+                        <a href="#" style="color: rgb(238, 125, 84)">Have
+                            assistant
+                            create
+                            lessons
+                        </a>
+                        <a href="#"
+                            style="text-decoration: none; display: inline;">&minus;</a>
+                    </p>
+                    <p>Number of Todos: <span style="color: orange">3</span></p>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <p>
+                        <a href="#" style="color: rgb(238, 125, 84)">Run through
+                            the
+                            lessons
+                        </a>
+                        <a href="#"
+                            style="text-decoration: none; display: inline;">&minus;</a>
+                    </p>
+
+                    <p>Number of Todos: <span style="color: orange">3</span></p>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <p>
+                        <a href="#" style="color: rgb(238, 125, 84)">Approve
+                            lessons
+                        </a>
+                        <a href="#"
+                            style="text-decoration: none; display: inline;">&minus;</a>
+                    </p>
+                    <p>Number of Todos: <span style="color: orange">3</span></p>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <p>
+                        <a href="#" style="color: rgb(238, 125, 84)">Hold
+                            classes
+                            with
+                            lessons
+                        </a>
+                        <a href="#"
+                            style="text-decoration: none; display: inline;">&minus;</a>
+                    </p>
+
+                    <p>Number of Todos:
+                        <span style="color: orange">Empty
+                            <button
+                                style="border: 1px solid red; display: inline-block;">
+                                <span class="icons">&#x2BB0;</span>
+                                Add Todo to Project
+                            </button>
+                        </span>
+                    </p>
+                </div>
+
+                <div style="border-bottom: 2px solid black;">
+                    <p>
+                        <a href="#" style="color: rgb(238, 125, 84)">Collect
+                            feedback
+                        </a>
+                        <a href="#"
+                            style="text-decoration: none; display: inline;">&minus;</a>
+                    </p>
+                    <p>Number of Todos: <span style="color: orange">3</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div style="border: 1px solid green;">
+            Status: To do, Doing, or Done <br />
+            Category: Fun, Work, School, Errand, or Other<br />
+            Priority (ordered for importance): 1 for Red, 2 for blue, 3
+            for<br />
+            purple, or 4 for orange
+        </div>
+
+        <br />
+        Ex: localStorage.getItem('todos_username');
+        Ex: localStorage.getItem('projects_username');
+        Ex: localStorage.setItem('todos_username', '[{one: 1, two: 2, three:
+        3}]');
+        Ex: localStorage.setItem('projects_username', '[{four: 4, five: 5, six:
+        6}]');
+        Ex: localStorage.removeItem("item");
     </body>
+
 </html>

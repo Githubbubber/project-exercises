@@ -120,7 +120,37 @@ const firstWhatNames = [
     ["tictactoe.html", "Tic Tac Toe"],
 ];
 
-const priorityFlag = [null, "red", "orange", "blue", "purple"];
+const todoIconsSection = "<ul>Icons from https://home.unicode.org:" +
+    "<li>&#127882; confetti for completions</li>" +
+    "<li>&#x2193; download for projects</li>" +
+    "<li>&ctdot; ellipsis for collapsed project/todo</li>" +
+    "<li>&#x2315; magnifying glass for general search</li>" +
+    "</ul>";
+
+const todoPriorityFlag = [null, "red", "orange", "blue", "purple"];
+
+// checks for localStorage or sessionStorage
+const isStorageAvailable = (type) => {
+    let storage;
+
+    try {
+        const x = "__storage_test__";
+
+        storage = window[type];
+        storage.setItem(x, x);
+        storage.removeItem(x);
+
+        return true;
+    } catch (e) {
+        return (
+            e instanceof DOMException &&
+            e.name === "QuotaExceededError" &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            storage &&
+            storage.length !== 0
+        );
+    }
+};
 
 export {
     htmlCopyulThirdEl,
@@ -130,5 +160,7 @@ export {
     htmlCopydivFifth5El,
     htmlCopydivFifth7El,
     firstWhatNames,
-    priorityFlag
+    todoPriorityFlag,
+    todoIconsSection,
+    isStorageAvailable
 };
