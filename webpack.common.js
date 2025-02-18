@@ -51,13 +51,13 @@ module.exports = {
             import: path.resolve(__dirname, "./src/index.js"),
             dependOn: "shared"
         },
+        homepage: {
+            import: path.resolve(__dirname, "./src/content/assets/js/homepage/homepage.js"),
+            dependOn: "shared"
+        },
         todo: {
             import: path.resolve(__dirname, "./src/content/assets/js/todo/todo.js"),
             dependOn: "shared"
-        },
-        rothko: {
-            import: path.resolve(__dirname, "./src/content/assets/js/rothko.js"),
-            dependOn: "shared",
         },
         ...entryPoints,
         shared: "lodash",
@@ -67,6 +67,11 @@ module.exports = {
             template: "./src/index.html",
             filename: "index.html",
             chunk: ["index"]
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/content/pages/homepage.html",
+            filename: "homepage.html",
+            chunk: ["homepage"]
         }),
         new HtmlWebpackPlugin({
             template: "./src/content/pages/todo.html",
