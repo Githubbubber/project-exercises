@@ -30,7 +30,7 @@ let wpPluginsForPages = htmlPages.map(page => {
         title: finalTitle,
         template: templatePath,
         filename: page + ".html",
-        chunk: [page]
+        chunks: [page]
     });
 });
 let entryPoints = {};
@@ -51,8 +51,8 @@ module.exports = {
             import: path.resolve(__dirname, "./src/index.js"),
             dependOn: "shared"
         },
-        homepage: {
-            import: path.resolve(__dirname, "./src/content/assets/js/homepage/homepage.js"),
+        about: {
+            import: path.resolve(__dirname, "./src/content/assets/js/about/about.js"),
             dependOn: "shared"
         },
         todo: {
@@ -66,17 +66,17 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.html",
             filename: "index.html",
-            chunk: ["index"]
+            chunks: ["index"]
         }),
         new HtmlWebpackPlugin({
-            template: "./src/content/pages/homepage.html",
-            filename: "homepage.html",
-            chunk: ["homepage"]
+            template: "./src/content/pages/about.html",
+            filename: "about.html",
+            chunks: ["about"]
         }),
         new HtmlWebpackPlugin({
             template: "./src/content/pages/todo.html",
             filename: "todo.html",
-            chunk: ["todo"]
+            chunks: ["todo"]
         }),
         ...wpPluginsForPages
     ],
