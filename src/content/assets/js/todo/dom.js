@@ -2,8 +2,16 @@
 // The UI logic, or DOM layer 
 
 import "../../css/todo.css";
-import storeTodoItem from "./todo.js";
-import { storageAvailable } from "../etc/constants.js"
+import { todoIconsSection, isStorageAvailable } from "../etc/constants.js";
+
+const bodyContentsToReplace = document.querySelector("#bodycontents");
+const todoSection = document.createElement("section");
+const todoPEl = document.createElement("p");
+
+todoPEl.textContent = todoIconsSection;
+todoSection.setAttribute("id", "todoContents");
+todoSection.appendChild(todoPEl);
+bodyContentsToReplace.appendChild(todoSection);
 
 const showAddTodoItemSection = () => {
     const divEl = document.createElement('div');
@@ -116,7 +124,7 @@ const displayTodoList = () => {
 };
 
 const getTodo = () => {
-    if (storageAvailable("localStorage")) {
+    if (isStorageAvailable("localStorage")) {
         const contentsDivEl = document.getElementById("contents");
 
         contentsDivEl.childNodes.forEach((child) => {

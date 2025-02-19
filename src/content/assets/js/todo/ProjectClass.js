@@ -1,9 +1,12 @@
+/**
+ * Retrieve the count of all of the todo items from localStorage
+ * The application logic, or data layer
+ */
 class Project {
-    // Retrieve the count of all of the todo items from localStorage
-    // The application logic, or data layer 
-
-    constructor(type) {
-        this.type = type;
+    constructor(title, description, notes) {
+        this.title = title;
+        this.description = description;
+        this.notes = notes;
         this.todoItems = [];
     }
 
