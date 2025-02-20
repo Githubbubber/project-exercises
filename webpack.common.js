@@ -21,7 +21,7 @@ let wpPluginsForPages = htmlPages.map(page => {
         title: finalTitle,
         template: templatePath,
         filename: page + ".html",
-        chunks: [page.replace(/-/g, "")]
+        chunks: [page.replace(/-/g, ""), "index"]
     });
 });
 
@@ -50,12 +50,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/content/pages/about.html",
             filename: "about.html",
-            chunks: ["about"]
+            chunks: ["about", "index"]
         }),
         new HtmlWebpackPlugin({
             template: "./src/content/pages/todo.html",
             filename: "todo.html",
-            chunks: ["todo"]
+            chunks: ["todo", "index"]
         }),
         ...wpPluginsForPages
     ],
