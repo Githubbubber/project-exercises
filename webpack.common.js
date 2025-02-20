@@ -1,9 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const letterToUpperCase = (letter) => {
-    return letter.toUpperCase();
-};
 let htmlPages = [
     "accessible-quiz", "admin-dashboard", "admin-dashboard2",
     "balance-sheet", "tictactoe",
@@ -12,55 +9,37 @@ let htmlPages = [
     "nutrition-label", "penguin", "piano", "picasso",
     "restaurant", "rothko"
 ];
+
 let wpPluginsForPages = htmlPages.map(page => {
     const wordsForTitle = page.split("-");
-    let capitalizedWords = [];
-    let finalTitle = "";
+    const capitalizedWords = wordsForTitle.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    const finalTitle = capitalizedWords.join(" ");
 
-    wordsForTitle.forEach(word => {
-        let capitalizedWord = word.replace(/^a-z/, letterToUpperCase);
-
-        capitalizedWords.push(capitalizedWord);
-    });
-
-    finalTitle = wordsForTitle.join(" ");
     let templatePath = "./src/content/pages/" + page + ".html";
 
     return new HtmlWebpackPlugin({
         title: finalTitle,
         template: templatePath,
         filename: page + ".html",
-        chunks: [page]
+        chunks: [page.replace(/-/g, "")]
     });
 });
+
 let entryPoints = {};
 
 for (const page of htmlPages) {
-    const pageProp = page.replace("-", "");
+    const pageProp = page.replace(/-/g, "");
     let importPath = "./src/content/assets/js/" + page + ".js";
 
-    entryPoints[pageProp] = {
-        import: path.resolve(__dirname, importPath),
-        dependOn: "shared"
-    };
-};
+    entryPoints[pageProp] = path.resolve(__dirname, importPath);
+}
 
 module.exports = {
     entry: {
-        index: {
-            import: path.resolve(__dirname, "./src/index.js"),
-            dependOn: "shared"
-        },
-        about: {
-            import: path.resolve(__dirname, "./src/content/assets/js/about/about.js"),
-            dependOn: "shared"
-        },
-        todo: {
-            import: path.resolve(__dirname, "./src/content/assets/js/todo/todo.js"),
-            dependOn: "shared"
-        },
+        index: path.resolve(__dirname, "./src/index.js"),
+        about: path.resolve(__dirname, "./src/content/assets/js/about/about.js"),
+        todo: path.resolve(__dirname, "./src/content/assets/js/todo/todo.js"),
         ...entryPoints,
-        shared: "lodash",
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -102,7 +81,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: ["css-loader"],
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
