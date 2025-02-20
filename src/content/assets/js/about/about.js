@@ -1,7 +1,7 @@
 import { getTheWhyHeader, getTheWhySection } from "./Why";
 import { getTheWhatHeader, getTheWhatSection } from "./What";
 
-const bodyContentsToReplace = document.querySelector("#bodyContents");
+const bodyContents = document.querySelector("#bodyContents");
 const aboutSection = document.createElement("section");
 
 const theWhyHeader = getTheWhyHeader();
@@ -15,8 +15,10 @@ aboutSection.appendChild(theWhySection);
 aboutSection.appendChild(theWhatHeader);
 aboutSection.appendChild(theWhatSection);
 
-if (bodyContentsToReplace) {
-    bodyContentsToReplace.replaceWith(aboutSection);
-}
+if (bodyContents) {
+    while (bodyContents.firstChild) {
+        bodyContents.removeChild(bodyContents.firstChild);
+    }
 
-document.body.appendChild(aboutSection);
+    bodyContents.appendChild(aboutSection);
+}
