@@ -1,4 +1,3 @@
-import _ from "lodash";
 import "./content/assets/css/style.css";
 import getHeading from "./sections/Heading";
 import getFooter from "./sections/Footer";
