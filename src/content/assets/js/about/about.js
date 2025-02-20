@@ -21,4 +21,4 @@ if (bodyContents) {
     }
 
     bodyContents.appendChild(aboutSection);
-}
+} else document.body.appendChild(aboutSection);
